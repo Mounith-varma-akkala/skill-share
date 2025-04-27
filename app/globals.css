@@ -1,0 +1,383 @@
+/* Additional cool animations */
+
+/* Animated particles */
+.animated-particles {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+/* Card hover animation */
+.animate-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animate-card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(var(--primary-rgb), 0.1), 0 8px 10px -6px rgba(var(--primary-rgb), 0.1);
+}
+
+/* Glitch effect */
+.glitch {
+  position: relative;
+  animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+  2%,
+  64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+.glitch:before,
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch:before {
+  left: 2px;
+  text-shadow: -2px 0 rgba(var(--primary-rgb), 0.7);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch:after {
+  left: -2px;
+  text-shadow: -2px 0 rgba(var(--accent-rgb), 0.7);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(31px, 9999px, 94px, 0);
+  }
+  5% {
+    clip: rect(70px, 9999px, 71px, 0);
+  }
+  10% {
+    clip: rect(29px, 9999px, 83px, 0);
+  }
+  15% {
+    clip: rect(16px, 9999px, 91px, 0);
+  }
+  20% {
+    clip: rect(2px, 9999px, 23px, 0);
+  }
+  25% {
+    clip: rect(46px, 9999px, 5px, 0);
+  }
+  30% {
+    clip: rect(71px, 9999px, 42px, 0);
+  }
+  35% {
+    clip: rect(5px, 9999px, 100px, 0);
+  }
+  40% {
+    clip: rect(89px, 9999px, 14px, 0);
+  }
+  45% {
+    clip: rect(8px, 9999px, 12px, 0);
+  }
+  50% {
+    clip: rect(82px, 9999px, 82px, 0);
+  }
+  55% {
+    clip: rect(99px, 9999px, 33px, 0);
+  }
+  60% {
+    clip: rect(37px, 9999px, 56px, 0);
+  }
+  65% {
+    clip: rect(71px, 9999px, 72px, 0);
+  }
+  70% {
+    clip: rect(28px, 9999px, 46px, 0);
+  }
+  75% {
+    clip: rect(67px, 9999px, 67px, 0);
+  }
+  80% {
+    clip: rect(39px, 9999px, 93px, 0);
+  }
+  85% {
+    clip: rect(48px, 9999px, 46px, 0);
+  }
+  90% {
+    clip: rect(8px, 9999px, 76px, 0);
+  }
+  95% {
+    clip: rect(69px, 9999px, 29px, 0);
+  }
+  100% {
+    clip: rect(65px, 9999px, 65px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(79px, 9999px, 13px, 0);
+  }
+  5% {
+    clip: rect(26px, 9999px, 25px, 0);
+  }
+  10% {
+    clip: rect(57px, 9999px, 90px, 0);
+  }
+  15% {
+    clip: rect(100px, 9999px, 7px, 0);
+  }
+  20% {
+    clip: rect(41px, 9999px, 63px, 0);
+  }
+  25% {
+    clip: rect(30px, 9999px, 88px, 0);
+  }
+  30% {
+    clip: rect(38px, 9999px, 40px, 0);
+  }
+  35% {
+    clip: rect(76px, 9999px, 85px, 0);
+  }
+  40% {
+    clip: rect(21px, 9999px, 46px, 0);
+  }
+  45% {
+    clip: rect(54px, 9999px, 36px, 0);
+  }
+  50% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+  55% {
+    clip: rect(38px, 9999px, 51px, 0);
+  }
+  60% {
+    clip: rect(69px, 9999px, 34px, 0);
+  }
+  65% {
+    clip: rect(1px, 9999px, 73px, 0);
+  }
+  70% {
+    clip: rect(81px, 9999px, 45px, 0);
+  }
+  75% {
+    clip: rect(63px, 9999px, 40px, 0);
+  }
+  80% {
+    clip: rect(31px, 9999px, 52px, 0);
+  }
+  85% {
+    clip: rect(89px, 9999px, 77px, 0);
+  }
+  90% {
+    clip: rect(36px, 9999px, 86px, 0);
+  }
+  95% {
+    clip: rect(6px, 9999px, 79px, 0);
+  }
+  100% {
+    clip: rect(82px, 9999px, 30px, 0);
+  }
+}
+
+/* 3D Tilt Effect */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s ease;
+}
+
+.tilt-card-inner {
+  transform: translateZ(20px);
+  transition: transform 0.5s ease;
+}
+
+.tilt-card:hover .tilt-card-inner {
+  transform: translateZ(40px);
+}
+
+/* Magnetic Button Effect */
+.magnetic-button {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Kinetic Typography */
+.kinetic-text {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.kinetic-text:hover {
+  transform: translateY(-5px) rotate(5deg) scale(1.1);
+  color: hsl(var(--primary));
+}
+
+/* Morphing Background */
+.morphing-bg {
+  background: linear-gradient(-45deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)), hsl(var(--accent)));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating Animation with Parallax */
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
+/* Pulse Animation */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Shimmering Text */
+.shimmer {
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--primary)) 100%);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Perspective Hover */
+.perspective-hover {
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+.perspective-hover:hover {
+  transform: perspective(1000px) rotateX(10deg) rotateY(10deg) scale(1.05);
+}
+
+/* Elastic Animation */
+.elastic {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.elastic:hover {
+  transform: scale(1.1);
+}
+
+/* Spotlight Effect */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 80%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Staggered Fade In */
+.stagger-fade-in > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger-fade-in > *:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.stagger-fade-in > *:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.stagger-fade-in > *:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.stagger-fade-in > *:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.stagger-fade-in > *:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.stagger-fade-in.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal on Scroll */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
